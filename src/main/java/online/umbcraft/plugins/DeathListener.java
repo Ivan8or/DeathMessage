@@ -32,14 +32,31 @@ public class DeathListener implements Listener {
         Player killer = e.getEntity().getKiller();
         Player victim = e.getEntity();
 
-        String killer_name = getPrefix(killer.getUniqueId())+" "+killer.getName()+" "+getSuffix(killer.getUniqueId());
-        String victim_name = getPrefix(victim.getUniqueId())+" "+victim.getName()+" "+getSuffix(victim.getUniqueId());
+        String killer_pref = getPrefix(killer.getUniqueId());
+        if(!killer_pref.equals(""))
+            killer_pref = killer_pref + " ";
+
+        String killer_suf = getSuffix(killer.getUniqueId());
+        if(!killer_suf.equals(""))
+            killer_suf = " " + killer_suf;
+
+        String victim_pref = getPrefix(victim.getUniqueId());
+        if(!victim_pref.equals(""))
+            victim_pref = victim_pref + " ";
+
+        String victim_suf = getSuffix(victim.getUniqueId());
+        if(!victim_suf.equals(""))
+            victim_suf = " " + victim_suf;
+
+        String killer_name = killer_pref + killer.getName() + killer_suf;
+        String victim_name = victim_pref + victim.getName() + victim_suf;
 
         String death_str = plugin.getDeathString();
 
-        death_str = death_str.replaceAll("\\(\\(victim\\)\\)",victim_name);
-        death_str = death_str.replaceAll("\\(\\(killer\\)\\)",killer_name);
+        death_str = death_str.replaceAll("\\(\\(victim\\)\\)",victim_name+ChatColor.WHITE);
+        death_str = death_str.replaceAll("\\(\\(killer\\)\\)",killer_name+ChatColor.WHITE);
         death_str = ChatColor.translateAlternateColorCodes('&', death_str);
+        death_str = death_str.replaceAll("\\s+"," ");
 
         e.setDeathMessage(death_str);
     }
@@ -60,6 +77,8 @@ public class DeathListener implements Listener {
                 .get();
         CachedMetaData metaData = luck_player.getCachedData().getMetaData(queryOptions);
         String prefix = metaData.getPrefix();
+        if(prefix == null)
+            return "";
         return prefix;
     }
 
@@ -76,6 +95,8 @@ public class DeathListener implements Listener {
         QueryOptions queryOptions = api.getContextManager().getQueryOptions(luck_player).get();
         CachedMetaData metaData = luck_player.getCachedData().getMetaData(queryOptions);
         String suffix = metaData.getSuffix();
+        if(suffix == null)
+            return "";
         return suffix;
     }
 
