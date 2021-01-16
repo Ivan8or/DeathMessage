@@ -1,5 +1,10 @@
 
 # ((victim)) the person who died
-# ((killer)) the person who killed
+# ((victim_prefix)) the prefix of the person who died
+# ((victim_suffix)) the suffix of the person who died
 
-death-message: ((victim)) was brutally murdered by ((killer))
+# ((killer)) the person who killed
+# ((killer_prefix)) the prefix of the person who killed
+# ((killer_suffix)) the suffix of the person who killed
+
+death-message: ((victim_suffix))((victim_prefix)) ((victim)) was &4brutally murdered&f by ((killer_suffix))((killer_prefix)) ((killer))
