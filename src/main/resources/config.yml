@@ -1,0 +1,5 @@
+
+# ((victim)) the person who died
+# ((killer)) the person who killed
+
+death-message: ((victim)) was brutally murdered by ((killer))

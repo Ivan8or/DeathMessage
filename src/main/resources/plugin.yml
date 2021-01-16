@@ -1,0 +1,5 @@
+name: DeathMessage
+version: ${project.version}
+main: online.umbcraft.plugins.DeathMessage
+author: Ivan8or
+api-version: 1.16
