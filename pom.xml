@@ -6,7 +6,7 @@
 
     <groupId>DeathMessage</groupId>
     <artifactId>online.umbcraft.plugins</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>Online.umbcraft.plugins</name>
